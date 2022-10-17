@@ -1,4 +1,4 @@
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, addDoc } from "firebase/firestore";
 import {db} from "./firebase";
 
 
@@ -11,4 +11,9 @@ export const getData = async () => {
         reviews.push(review);
     });
     return reviews;
+}
+
+export const pushData = async (data) => {
+    const subscriber = await addDoc(collection(db, "subscribers"), data)
+    return subscriber.id;
 }
