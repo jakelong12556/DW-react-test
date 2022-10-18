@@ -6,7 +6,7 @@ body {
 .column {
   float: left;
   width: 33%;
-  padding: 0 10px;
+  padding: 0 0.5em;
 }
 
 .card {
@@ -14,10 +14,16 @@ body {
   color:white;
 }
 
-.card-col {
+.noted-title{
+  color: #FFFFFFB6;
+}
+
+.card-col-title {
   float: left;
-  width: 50%;
-  padding: 0 5px;
+  width:70%;
+}
+.card-col-detail{
+  width:30%;
 }
 
 .card-text{
@@ -26,11 +32,13 @@ body {
   opacity: 0.65;
 }
 
+.card-text-info{
+  text-align: right;
+}
+
 .card-title{
   margin-bottom: 0.5em;
 }
-
-
 
 .jumbotron{
   color: white;
@@ -39,25 +47,60 @@ body {
   align-items:center;
   flex-direction:column;
 }
-
-/* Remove extra left and right margins, due to padding in columns */
 .row {
-  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+
+.email-form{
+  width:50%;
+  display:flex;
+  justify-content:center;
 }
 
-@media screen and (max-width: 600px) {
-  .column, .email-form {
+.email-button{
+  width: 25%;
+  padding-left: 1em;
+  display: flex;
+}
+
+.email-input{
+  width: 75%;
+  display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+  .email-form{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .column, .email-input, .email-button, .card-col-header, .card-col-detail {
     width: 100%;
     display: block;
     margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .card-col{
+    margin-bottom: 0.5em;
+  }
+
+  .card-col-title{
+    width: 100%;
+    justify-content:center;
+  }
+
+  .rating{
+    display: flex;
+    justify-content:center;
+    margin: 0.5em 0;
+  }
+
+  .card-text-info, .card-title{
+    text-align: center;
   }
 }

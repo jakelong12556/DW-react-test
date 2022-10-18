@@ -63,24 +63,26 @@ class App extends Component {
   )
 
   renderReviews = (reviews) => (
-    <div className="row">
+    <div className="row w-75">
       {reviews.map((review) => (
         <div className="column" key={review.id}>
           <div className="card">
             <div className="card-body">
-              <div className="d-flex">
-                <div className="card-col">
+              <div className="d-flex row">
+                <div className="card-col-title">
                   <h5 className="card-title">{review.title}</h5>
-                  <Rating
-                    icon={<FontAwesomeIcon icon={faStar} />}
-                    className="text-white"
-                    name="read-only"
-                    value={review.rating}
-                    readOnly></Rating>
+                  <div className="rating">
+                    <Rating icon={<FontAwesomeIcon icon={faStar} />}
+                            className="text-white"
+                            name="read-only"
+                            value={review.rating}
+                            readOnly></Rating>
+                  </div>
+
                 </div>
-                <div className="card-col text-right">
-                  <p className="card-text">{review.date.toLocaleDateString()}</p>
-                  <p className="card-text">{review.name}</p>
+                <div className="card-col-detail">
+                  <p className="card-text card-text-info">{review.date.toLocaleDateString()}</p>
+                  <p className="card-text card-text-info">{review.name}</p>
                 </div>
               </div>
               <div>
@@ -94,20 +96,24 @@ class App extends Component {
   )
 
   renderEmailForm = (
-    <div className="d-flex w-75 justify-content-center">
-      <TextField className="w-50 mr-2"
-                 InputProps={{style: {color:'#ffffff', backgroundColor: '#FFFFFF1A'}}}
-                 InputLabelProps={{style: { color: '#ffffff'}}}
-                 id="outlined-basic"
-                 label="Enter your email"
-                 variant="outlined"
-                 onChange={(e) => this.onTextChange(e)}
-      />
-      <Button className="w-25"
-              style={{backgroundColor:'#FFFFFF1A', textTransform: 'none', fontSize:'1rem'}}
-              variant="outlined"
-              onClick={(e) => this.onSubmit(e)}
-      >Subscribe</Button>
+    <div className="email-form">
+      <div className="email-input">
+        <TextField InputProps={{style: {color:'#ffffff', backgroundColor: '#FFFFFF1A'}}}
+                   InputLabelProps={{style: { color: '#ffffff'}}}
+                   id="outlined-basic"
+                   label="Enter your email"
+                   variant="outlined"
+                   fullWidth
+                   onChange={(e) => this.onTextChange(e)}
+        />
+      </div>
+      <div className="email-button">
+        <Button style={{backgroundColor:'#FFFFFF1A', textTransform: 'none', fontSize:'1.3rem', border: '2px solid rgba(255, 255, 255, 1)'}}
+                variant="outlined"
+                fullWidth
+                onClick={(e) => this.onSubmit(e)}
+        >Subscribe</Button>
+      </div>
     </div>
   )
 
@@ -123,7 +129,7 @@ class App extends Component {
         <div>
           <div className="jumbotron">
             <h4 className="text-center">Stay up-to-date with</h4>
-            <h1 className="text-center mb-4">News, updates, promos, and exclusives from Noted</h1>
+            <h2 className="text-center mb-4 noted-title">News, updates, promos, and exclusives from <span className="text-white">Noted</span></h2>
             {!this.state.isSubmitted && !this.state.isValid ? this.renderEmailForm : null}
             {this.state.isSubmitted ? this.messageHandler(this.state.isValid) : null}
             {this.state.isLoadingEmail ? this.spinner : null}
