@@ -1,1 +1,249 @@
 @import "./_main";
+
+
+
+//Reusable Css
+@mixin display-flex{
+  display: flex;
+}
+
+@mixin justify-center{
+  justify-content:center;
+}
+
+@mixin pt-medium{
+  padding-top:1.5rem;
+}
+
+@mixin pr-small{
+  padding-right: 0.5rem;
+}
+
+@mixin auto-center-margin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font-medium{
+  font-size: 1.5rem;
+}
+
+.white{
+  color: white;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.noted-title{
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #FFFFFFB6;
+}
+
+// Card Component
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 0.5em;
+}
+
+.review-row{
+  @include auto-center-margin;
+  width: 75%;
+}
+
+.card-row{
+  @include auto-center-margin;
+  @include display-flex;
+}
+
+.card-body-ex{
+  padding: 1.25rem;
+}
+
+.card-col-title {
+  float: left;
+  width:70%;
+}
+.card-col-detail{
+  width:30%;
+}
+
+.card-text{
+  margin: 0;
+  mix-blend-mode: normal;
+  opacity: 0.65;
+}
+
+.card-text-info{
+  text-align: right;
+}
+
+.card-title{
+  margin-bottom: 0.5em;
+}
+
+// Spinner
+.progress-circle{
+  @include display-flex;
+  @include justify-center;
+  @include pt-medium;
+}
+
+.loading-spinner{
+  border: 0.5rem solid transparent; /* Light grey */
+  border-top: 0.5rem solid #FFFFFFFF; /* Blue */
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Message Handler
+
+.message-handler{
+  @include display-flex;
+  @include justify-center;
+  width: 50%;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  color: black;
+  line-height: 1.4;
+  border-radius: 4px;
+}
+
+.check{
+  @include pr-small;
+  color: #4caf50;
+}
+
+.error{
+  @include pr-small;
+  color: #ef5350;
+}
+
+.card-ex{
+  word-wrap: break-word;
+  background: #FFFFFF1A;
+  color:white;
+}
+
+
+// Subscriber Form
+
+.jumbotron{
+  color: white;
+  background-color:#090B22;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  margin-bottom: 2rem;
+  padding: 4rem 2rem;
+}
+
+.email-form{
+  width:50%;
+  display:flex;
+  justify-content:center;
+}
+
+.email-button{
+  width: 25%;
+  padding-left: 1em;
+  display: flex;
+}
+
+.email-input{
+  width: 75%;
+  display: flex;
+}
+
+.rating{
+  margin-bottom: 0.5rem;
+}
+
+.email-field{
+  width: 100%;
+  color: white;
+  background-color: #FFFFFF1A;
+  border: 0;
+  border-radius: 4px;
+  padding: 16.5px 14px;
+
+  &::placeholder{
+    color:white;
+  }
+}
+
+.submit-button{
+  width: 100%;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-transform: none;
+  font-size: 1.3rem;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1000px) {
+
+  .jumbotron{
+    padding: 2rem 1rem;
+  }
+
+  .email-form{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .column, .email-input, .email-button, .card-col-header, .card-col-detail, {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .message-handler{
+    width: 70%;
+  }
+
+  .submit-button{
+    padding: 0.75rem;
+  }
+
+  .card-col{
+    margin-bottom: 0.5em;
+  }
+
+  .card-row{
+    display: block;
+  }
+
+  .card-col-title{
+    width: 100%;
+    justify-content:center;
+  }
+
+  .rating{
+    display: flex;
+    justify-content:center;
+  }
+
+  .card-text-info, .card-title{
+    text-align: center;
+  }
+}

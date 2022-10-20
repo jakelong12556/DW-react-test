@@ -1,106 +1,135 @@
-body {
-  background-color:#1F2451;
-}/*# sourceMappingURL=app.css.map */
+/*body {*/
+/*  background-color:#1F2451;*/
+/*  font-size: 1rem;*/
+/*  font-weight:400;*/
+/*  line-height:1.5;*/
+/*  text-align: left;*/
+/*}!*# sourceMappingURL=app.css.map *!*/
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 33%;
-  padding: 0 0.5em;
-}
+/**, ::after, ::before{*/
+/*  box-sizing: border-box;*/
+/*}*/
 
-.card {
-  background: #FFFFFF1A;
-  color:white;
-}
+/*.column {*/
+/*  float: left;*/
+/*  width: 33%;*/
+/*  padding: 0 0.5em;*/
+/*}*/
 
-.noted-title{
-  color: #FFFFFFB6;
-}
+/*.card {*/
+/*  background: #FFFFFF1A;*/
+/*  color:white;*/
+/*}*/
 
-.card-col-title {
-  float: left;
-  width:70%;
-}
-.card-col-detail{
-  width:30%;
-}
+/*.noted-title{*/
+/*  color: #FFFFFFB6;*/
+/*}*/
 
-.card-text{
-  margin: 0;
-  mix-blend-mode: normal;
-  opacity: 0.65;
-}
+/*.display-flex{*/
+/*  display: flex;*/
+/*}*/
 
-.card-text-info{
-  text-align: right;
-}
+/*justify-center{*/
+/*  justify-content:center;*/
+/*}*/
 
-.card-title{
-  margin-bottom: 0.5em;
-}
+/*.pt-medium{*/
+/*  padding-top:1.5rem;*/
+/*}*/
 
-.jumbotron{
-  color: white;
-  background-color:#090B22;
-  display:flex;
-  align-items:center;
-  flex-direction:column;
-}
-.row {
-  margin-left: auto;
-  margin-right: auto;
-}
+/*.card-col-title {*/
+/*  float: left;*/
+/*  width:70%;*/
+/*}*/
+/*.card-col-detail{*/
+/*  width:30%;*/
+/*}*/
+
+/*.card-text{*/
+/*  margin: 0;*/
+/*  mix-blend-mode: normal;*/
+/*  opacity: 0.65;*/
+/*}*/
+
+/*.card-text-info{*/
+/*  text-align: right;*/
+/*}*/
+
+/*.card-title{*/
+/*  margin-bottom: 0.5em;*/
+/*}*/
+
+/*.jumbotron{*/
+/*  color: white;*/
+/*  background-color:#090B22;*/
+/*  display:flex;*/
+/*  align-items:center;*/
+/*  flex-direction:column;*/
+/*  margin-bottom: 2rem;*/
+/*}*/
+/*.row {*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*}*/
 
 
-.email-form{
-  width:50%;
-  display:flex;
-  justify-content:center;
-}
+/*.email-form{*/
+/*  width:50%;*/
+/*  display:flex;*/
+/*  justify-content:center;*/
+/*}*/
 
-.email-button{
-  width: 25%;
-  padding-left: 1em;
-  display: flex;
-}
+/*.email-button{*/
+/*  width: 25%;*/
+/*  padding-left: 1em;*/
+/*  display: flex;*/
+/*}*/
 
-.email-input{
-  width: 75%;
-  display: flex;
-}
+/*.email-input{*/
+/*  width: 75%;*/
+/*  display: flex;*/
+/*}*/
 
-@media screen and (max-width: 1000px) {
-  .email-form{
-    width: 80%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/*.email-field{*/
 
-  .column, .email-input, .email-button, .card-col-header, .card-col-detail {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-    padding: 0;
-  }
+/*}*/
 
-  .card-col{
-    margin-bottom: 0.5em;
-  }
+/*@media screen and (max-width: 1000px) {*/
 
-  .card-col-title{
-    width: 100%;
-    justify-content:center;
-  }
+/*  .jumbotron{*/
+/*    padding: 4rem 2rem;*/
+/*  }*/
 
-  .rating{
-    display: flex;
-    justify-content:center;
-    margin: 0.5em 0;
-  }
+/*  .email-form{*/
+/*    width: 80%;*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*  }*/
 
-  .card-text-info, .card-title{
-    text-align: center;
-  }
-}
+/*  .column, .email-input, .email-button, .card-col-header, .card-col-detail {*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*    margin-bottom: 20px;*/
+/*    padding: 0;*/
+/*  }*/
+
+/*  .card-col{*/
+/*    margin-bottom: 0.5em;*/
+/*  }*/
+
+/*  .card-col-title{*/
+/*    width: 100%;*/
+/*    justify-content:center;*/
+/*  }*/
+
+/*  .rating{*/
+/*    display: flex;*/
+/*    justify-content:center;*/
+/*    margin: 0.5em 0;*/
+/*  }*/
+
+/*  .card-text-info, .card-title{*/
+/*    text-align: center;*/
+/*  }*/
+/*}*/

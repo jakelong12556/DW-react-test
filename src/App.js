@@ -1,10 +1,8 @@
-import "./styles/app.css";
+import "./styles/app.scss";
 import React, { Component } from 'react';
 import {getData, pushData} from "./api";
-import {Alert, Button, Rating, TextField} from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { CircularProgress } from '@mui/material';
+import {faCheck, faExclamation, faStar} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -57,26 +55,25 @@ class App extends Component {
   }
 
   spinner = (
-    <div className="d-flex justify-content-center pt-4" >
-      <CircularProgress className="text-white" />
+    <div className="progress-circle" >
+      <div className="loading-spinner"></div>
     </div>
   )
 
   renderReviews = (reviews) => (
-    <div className="row w-75">
+    <div className="review-row">
       {reviews.map((review) => (
         <div className="column" key={review.id}>
-          <div className="card">
-            <div className="card-body">
-              <div className="d-flex row">
+          <div className="card-ex">
+            <div className="card-body-ex">
+              <div className="card-row">
                 <div className="card-col-title">
                   <h5 className="card-title">{review.title}</h5>
                   <div className="rating">
-                    <Rating icon={<FontAwesomeIcon icon={faStar} />}
-                            className="text-white"
-                            name="read-only"
-                            value={review.rating}
-                            readOnly></Rating>
+                    {[...Array(review.rating)].map((e, i) => (
+                      <FontAwesomeIcon key={i} icon={faStar} className="font-medium" />
+                      )
+                    )}
                   </div>
 
                 </div>
@@ -98,28 +95,21 @@ class App extends Component {
   renderEmailForm = (
     <div className="email-form">
       <div className="email-input">
-        <TextField InputProps={{style: {color:'#ffffff', backgroundColor: '#FFFFFF1A'}}}
-                   InputLabelProps={{style: { color: '#ffffff'}}}
-                   id="outlined-basic"
-                   label="Enter your email"
-                   variant="outlined"
-                   fullWidth
-                   onChange={(e) => this.onTextChange(e)}
+        <input type="text"
+               className="email-field"
+               placeholder="Enter your email"
+               onChange={(e) => this.onTextChange(e)}
         />
       </div>
       <div className="email-button">
-        <Button style={{backgroundColor:'#FFFFFF1A', textTransform: 'none', fontSize:'1.3rem', border: '2px solid rgba(255, 255, 255, 1)'}}
-                variant="outlined"
-                fullWidth
-                onClick={(e) => this.onSubmit(e)}
-        >Subscribe</Button>
+        <button className="submit-button" onClick={(e) => this.onSubmit(e)}>Subscribe</button>
       </div>
     </div>
   )
 
   messageHandler = (valid) => (
-    <div className="mt-2 d-flex w-50 justify-content-center">
-      {valid ? <Alert className="w-100" severity="success">Email Submitted!</Alert> : <Alert className="w-100" severity="error">Please enter a valid email</Alert>}
+    <div className="message-handler">
+      {valid?  <div className="w-100"> <FontAwesomeIcon icon={faCheck} className="check"/> Email Submitted!</div> :       <div className="w-100"> <FontAwesomeIcon icon={faExclamation} className="error"/> Please enter a valid email</div>}
     </div>
   )
 
@@ -129,11 +119,10 @@ class App extends Component {
         <div>
           <div className="jumbotron">
             <h4 className="text-center">Stay up-to-date with</h4>
-            <h2 className="text-center mb-4 noted-title">News, updates, promos, and exclusives from <span className="text-white">Noted</span></h2>
-            {!this.state.isSubmitted && !this.state.isValid ? this.renderEmailForm : null}
+            <h2 className="noted-title">News, updates, promos, and exclusives from <span className="white">Noted</span></h2>
+            {(!this.state.isSubmitted || !this.state.isValid) ? this.renderEmailForm : null}
             {this.state.isSubmitted ? this.messageHandler(this.state.isValid) : null}
             {this.state.isLoadingEmail ? this.spinner : null}
-
           </div>
           {this.state.isLoading ? this.spinner : this.renderReviews(reviews)}
         </div>
