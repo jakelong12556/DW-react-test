@@ -10,8 +10,8 @@ const ReviewViewer = ({reviews, isLoading}) => {
     <div className="review-row">
       {reviews.map((review) => (
         <div className="column" key={review.id}>
-          <div className="card-ex">
-            <div className="card-body-ex">
+          <div className="card">
+            <div className="card-body">
               <div className="card-row">
                 <div className="card-col-title">
                   <h5 className="card-title">{review.title}</h5>
