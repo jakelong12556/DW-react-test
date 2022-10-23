@@ -3,20 +3,29 @@
 
 
 //Reusable Css
-@mixin display-flex{
+@mixin flex-align($flex-direction: unset, $flex-wrap: unset, $align-content: unset, $justify-content: unset, $align-items: unset){
   display: flex;
-}
 
-@mixin justify-center{
-  justify-content:center;
-}
+  @if $flex-direction != unset {
+    flex-direction: $flex-direction;
+  }
 
-@mixin pt-medium{
-  padding-top:1.5rem;
-}
+  @if $flex-wrap != unset {
+    flex-wrap: $flex-wrap;
+  }
 
-@mixin pr-small{
-  padding-right: 0.5rem;
+  @if $align-content != unset {
+    align-content: $align-content;
+  }
+
+  @if $justify-content != unset {
+    justify-content: $justify-content;
+  }
+
+  @if $align-items != unset {
+    align-items: $align-items;
+  }
+
 }
 
 @mixin auto-center-margin {
@@ -40,6 +49,9 @@
   text-align: center;
 }
 
+
+// Header
+
 .noted-title{
   text-align: center;
   margin-bottom: 1.5rem;
@@ -60,7 +72,7 @@
 
 .card-row{
   @include auto-center-margin;
-  @include display-flex;
+  display: flex;
 }
 
 .card-body-ex{
@@ -91,14 +103,13 @@
 
 // Spinner
 .progress-circle{
-  @include display-flex;
-  @include justify-center;
-  @include pt-medium;
+  @include flex-align($justify-content: center);
+  padding-top:1.5rem;
 }
 
 .loading-spinner{
-  border: 0.5rem solid transparent; /* Light grey */
-  border-top: 0.5rem solid #FFFFFFFF; /* Blue */
+  border: 0.5rem solid transparent;
+  border-top: 0.5rem solid #FFFFFFFF;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -113,8 +124,7 @@
 // Message Handler
 
 .message-handler{
-  @include display-flex;
-  @include justify-center;
+  @include flex-align($justify-content: center);
   width: 50%;
   margin-top: 1rem;
   padding: 0.75rem 1rem;
@@ -125,12 +135,12 @@
 }
 
 .check{
-  @include pr-small;
+  padding-right: 0.5rem;
   color: #4caf50;
 }
 
 .error{
-  @include pr-small;
+  padding-right: 0.5rem;
   color: #ef5350;
 }
 
@@ -146,11 +156,14 @@
 .jumbotron{
   color: white;
   background-color:#090B22;
-  display:flex;
-  align-items:center;
+  width: 100%;
   flex-direction:column;
   margin-bottom: 2rem;
   padding: 4rem 2rem;
+}
+
+.subscriber{
+  @include flex-align($justify-content: center, $align-items: center, $flex-direction: column);
 }
 
 .email-form{
@@ -195,6 +208,14 @@
   text-transform: none;
   font-size: 1.3rem;
   border: 2px solid rgb(255, 255, 255);
+
+  &:disabled{
+    color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+  }
+
 }
 
 @media screen and (max-width: 1000px) {
